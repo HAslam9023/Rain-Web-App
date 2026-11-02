@@ -1,0 +1,83 @@
+body
+{
+    background-color: #0B0909;
+    color: #408175;
+    font-family: "Cantarell", sans-serif;
+}
+
+h1
+{
+    font-family: "Old Standard TT", serif;
+}
+
+.flex-container
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+form input
+{
+    color: #B5B9F0;
+    border: none;
+    border-bottom: 1px solid #B5B9F0;
+    background-color: #0B0909;
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+}
+
+form select
+{
+    color: #B5B9F0;
+    border: none;
+    border-bottom: 1px solid #B5B9F0;
+    background-color: #0B0909;
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+}
+
+.btn
+{
+    font-size: 0.9rem;
+    font-weight: 700;
+    padding: 11px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    transition: all 0.2s ease;
+    background: linear-gradient(135deg, #2E4540, #408175);
+    color: #ffffff;
+    box-shadow: 0 6px 16px rgba(46,69,64,0.35);
+}
+
+.btn:hover
+{
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+form
+{
+    display: grid;
+    grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+    gap: 10px;
+}
+
+form button
+{
+    grid-column: span 2;
+}
+
+#location-form label
+{
+    grid-column: span 2;
+}

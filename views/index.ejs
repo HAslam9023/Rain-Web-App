@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Rain or No Rain</title>
+        <link rel="stylesheet" href="/styles/styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cantarell:ital,wght@0,400;0,700;1,400;1,700&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap"
+              rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="flex-container">
+            <% if (locals.rainMessage) { %>
+                <h1><%= locals.rainMessage %></h1>
+            <% } else {%>
+                <h1>Rain or No Rain</h1>
+
+                <% if (locals.searchResults) { %>
+                    <form action="/rain" method="POST" id="location-form">
+                        <label>
+                            <select name="location" id="location">
+                                <% for (let i = 0; i < locals.searchResults.length; i++) { %>
+                                    <% if (locals.searchResults[i].country
+                                            === "United States") { %>
+                                        <option>
+                                            <%= locals.searchResults[i].name %>,
+                                            <%= locals.searchResults[i].admin1 %>
+                                        </option>
+                                    <% } else { %>
+                                        <option>
+                                            <%= locals.searchResults[i].name %>,
+                                            <%= locals.searchResults[i].country %>
+                                        </option>
+                                    <% } %>
+                                <% } %>
+                            </select>
+                        </label>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                <% } else { %>
+                    <form action="/location" method="POST" id="search-form">
+                        <label>
+                            <input type="text" name="city" placeholder="Enter a city">
+                        </label>
+                        <label>
+                            <input type="text" name="country" placeholder="Enter a country">
+                        </label>
+                        <button type="submit" class="btn">Submit</button>
+                    </form>
+                <% } %>
+            <% } %>
+        </div>
+    </body>
+</html>
